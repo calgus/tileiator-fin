@@ -1,0 +1,365 @@
+.transition(@property: all, @time: 1s, @timing: ease-in-out) {
+  -webkit-transition: @property @time @timing;
+     -moz-transition: @property @time @timing;
+      -ms-transition: @property @time @timing;
+       -o-transition: @property @time @timing;
+          transition: @property @time @timing;
+}
+.transition-property(@property: all) {
+  -webkit-transition-property: @property;
+     -moz-transition-property: @property;
+      -ms-transition-property: @property;
+       -o-transition-property: @property;
+          transition-property: @property;
+}
+.transition-duration(@time: 1s) {
+  -webkit-transition-duration: @time;
+     -moz-transition-duration: @time;
+      -ms-transition-duration: @time;
+       -o-transition-duration: @time;
+          transition-duration: @time;
+}
+.transition-timing-function(@timing: ease-in-out) {
+  -webkit-transition-timing-function: @timing;
+     -moz-transition-timing-function: @timing;
+      -ms-transition-timing-function: @timing;
+       -o-transition-timing-function: @timing;
+          transition-timing-function: @timing;
+}
+
+#mainGame {
+    min-height: 625px;
+    overflow: auto;
+}
+
+#gameContain {
+    float: left;
+    position: relative;
+}
+ #form1 {
+     overflow: auto;
+ }
+
+#playingPlayer {
+    margin-left: 5px;
+}
+
+#playingPlayerAvatar {
+    margin-left: 5px;
+}
+
+ .output {
+     width: 300px;
+     height: 382px;
+     padding-left: 5px;
+     overflow: hidden;
+    background-color: rgba(132, 132, 132, 0.4);
+     .message {
+        color: #fff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 16px;
+        font-family: Arial;
+     }
+     .vote, .server {
+         color: red;
+         font-weight: bold;
+         text-shadow: none;
+     }
+     .personal {
+         color: green;
+         font-weight: bold;
+         text-shadow: none;
+     }
+ }
+ .username {
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+ }
+.output::-webkit-scrollbar {
+    display: none;
+}
+ .output p, .userslist p {
+     margin-bottom: 0px;
+ }
+
+ .right {
+     float: left;
+     .top {
+         background-color: #6D6D6D;
+         width: 300px;
+         height: 200px;
+         .currentPlayerStats {
+             text-align: center;
+             padding-left: 5px;
+             float: left;
+             width: 150px;
+             height: 200px;
+             color: white;
+             font-weight: bold;
+             border-right: 1px solid white;
+             #lives {
+                 font-weight: bold;
+                 font-size: 18px;
+             }
+         }
+         .userslist {
+             color: white;
+             width: 145px;
+             height: 200px;
+             float: right;
+             padding-top: 10px;
+         }
+     }
+ }
+
+ .left {
+     float: left;
+ }
+
+.loginInfo {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+#username {
+    width: 270px;
+    height: 30px;
+    font-size: 1.5em;
+}
+
+.connectButton {
+  background: #5b5d5e;
+  background-image: -webkit-linear-gradient(top, #5b5d5e, #545454);
+  background-image: -moz-linear-gradient(top, #5b5d5e, #545454);
+  background-image: -ms-linear-gradient(top, #5b5d5e, #545454);
+  background-image: -o-linear-gradient(top, #5b5d5e, #545454);
+  background-image: linear-gradient(to bottom, #5b5d5e, #545454);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  -webkit-box-shadow: 4px 4px 10px #666666;
+  -moz-box-shadow: 4px 4px 10px #666666;
+  box-shadow: 4px 4px 10px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 5px 13px 5px 13px;
+  border: solid #141414 1px;
+  text-decoration: none;
+}
+
+.connectButton:hover {
+  background: #636363;
+  background-image: -webkit-linear-gradient(top, #636363, #636363);
+  background-image: -moz-linear-gradient(top, #636363, #636363);
+  background-image: -ms-linear-gradient(top, #636363, #636363);
+  background-image: -o-linear-gradient(top, #636363, #636363);
+  background-image: linear-gradient(to bottom, #636363, #636363);
+  text-decoration: none;
+}
+
+ #message {
+     width: 300px;
+     height: 24px;
+     font-size: 1.2em;
+     display: block;
+ }
+
+ @tile-size:32px;
+ #content {
+ 	height: @tile-size*19;
+ 	width: @tile-size*25;
+ 	position: absolute;
+    overflow: hidden;
+ }
+
+.usersprite {
+    &.human {
+        background-image:url(../img/avatars/human.png);
+    }
+    &.hatman {
+        background-image:url(../img/avatars/hatman.png);
+    }
+    &.oldman {
+        background-image:url(../img/avatars/oldman.png);
+    }
+    &.paladin {
+        background-image:url(../img/avatars/paladin.png);
+    }
+    width:20px;
+    height:20px;
+    background-size: auto 20px;
+    background-repeat:no-repeat;
+    display: inline-block;
+}
+
+ #player {
+ 	position: absolute;
+ 	z-index:10;
+ 	width:@tile-size;
+ 	height:@tile-size;
+    &.human {
+        background-image:url(../img/avatars/human.png);
+    }
+    &.hatman {
+        background-image:url(../img/avatars/hatman.png);
+    }
+    &.oldman {
+        background-image:url(../img/avatars/oldman.png);
+    }
+    &.paladin {
+        background-image:url(../img/avatars/paladin.png);
+    }
+    &.right {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    }
+    background-size: auto 32px;
+ 	background-repeat:no-repeat;
+    .transition-property(e('left,top'));
+    .transition-duration(0.2s);
+    .transition-timing-function(ease);
+ }
+
+ .enemy {
+    position: absolute;
+    z-index:10;
+    width:@tile-size;
+    height:@tile-size;
+    &.walker {
+        background-image:url(../img/enemies/ogre.png);
+    }
+    &.shooter {
+        background-image:url(../img/enemies/javthrower.png);
+    }
+    background-size: auto 32px;
+    background-repeat:no-repeat;
+    .transition-property(e('left,top'));
+    .transition-duration(0.2s);
+    .transition-timing-function(ease);
+    &.right {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    }
+ }
+
+.bomb {
+    position: absolute;
+    z-index: 10;
+    width: @tile-size;
+    height: @tile-size;
+    background-image:url(../img/tiles/effects/ruby.png);
+    background-size: auto 32px;
+}
+
+.bombEffect {
+    position: absolute;
+    z-index: 10;
+    width: @tile-size;
+    height: @tile-size;
+    background-image:url(../img/tiles/effects/bolt05.png);
+    background-size: auto 32px;
+}
+
+.lazor {
+    position: absolute;
+    z-index: 10;
+    width: @tile-size;
+    height: @tile-size;
+    &.up {
+        background-image:url(../img/tiles/effects/javelin0.png);
+    }
+    &.down {
+        background-image:url(../img/tiles/effects/javelin4.png);
+    }
+    &.left {
+        background-image:url(../img/tiles/effects/javelin6.png);
+    }
+    &.right {
+        background-image:url(../img/tiles/effects/javelin2.png);
+    }
+    background-size: auto 32px;
+}
+
+.bloodsplat {
+    position: absolute;
+    z-index: 8;
+    width: @tile-size;
+    height: @tile-size;
+    background-image: url(../img/tiles/effects/blood_red1.png);
+    &.larger {
+        z-index: 9;
+        background-image: url(../img/tiles/effects/blood_red4.png);
+    }
+    background-size: auto 32px;
+}
+
+ .tile, .t {
+ 	width: 32px;
+ 	height: 32px;
+ 	float: left;
+ 	background-repeat: no-repeat;
+ }
+
+
+ .t1 {
+     background: url(../img/tiles/grass_w.png);
+ }
+ .t2 {
+     background: url(../img/tiles/grass_nw.png);
+ }
+ .t3 {
+     background: url(../img/tiles/grass_n.png);
+ }
+ .t4 {
+     background: url(../img/tiles/grass_ne.png);
+ }
+ .t5 {
+     background: url(../img/tiles/grass_e.png);
+ }
+ .t6 {
+     background: url(../img/tiles/grass_se.png);
+ }
+ .t7 {
+     background: url(../img/tiles/grass_s.png);
+ }
+ .t8 {
+     background: url(../img/tiles/grass_sw.png);
+ }
+ .t9 {
+     background: url(../img/tiles/grass_full.png);
+ }
+ .t10 {
+ 	background: url(../img/tiles/floor_sand_stone1.png);
+ }
+ .t11 {
+ 	background: url(../img/tiles/sandstone_wall1.png) -32px -96px;
+ }
+ .t12 {
+ 	background: url(../img/tiles/crate.png) 0px -128px;
+ }
+ .t13 {
+ 	background: url(../img/tiles/dngn_closed_door.png
+ ) -64px -128px;
+ }
+ .t14 {
+     background: url(../img/tiles/floor_pillar.png);
+ }
+ .t15 {
+     background: url(../img/tiles/dngn_enter_dis.png)
+ }
+.t16 {
+    background: url(../img/tiles/dngn_entrance.png)
+}
